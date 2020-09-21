@@ -53,3 +53,13 @@ https://en.wikipedia.org/wiki/Open_Sound_System
 Anyhow you need it for sound vis to work...
 
 Sound vis are a good starting point for frequency domain stuff to happen.
+
+However, OSS on linux mint 20 is more than a pain (I can't get it to work without messing around with my system sound), and indeed i have no sound after installing OSS.
+
+<h2> working with wav files </h2>
+
+The alternative is to record a wav file using audacity.
+
+And then importing the wav files into audacity.
+
+
