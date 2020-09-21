@@ -5,7 +5,7 @@ Theodore's Labview Repository for YouTube (public)
 Some instructions:
 
 
-Install notes:
+<h1> Install notes: </h1>
 When installing labview, I used Linux Mint 20 (Ulyana) to install.
 Labview only supports RedHat, OpenSUSE and scientific Linux. However, i was able to get it done on Linux Mint 20, an Ubuntu based distro.
 
@@ -28,4 +28,28 @@ This was the closest guide for installing labview on Debian 10 buster, which sho
 https://www.martinholub.com/code/2019/04/28/InsatllingLabVIEW.html
 
 
+<h1> Example 1 notes: </h1>
 
+In Example 1, i attempt to connect the microphone to labview in linux (Linux mint ulyana) and i find that some of these videos are helpful:
+
+https://www.youtube.com/watch?v=Q7UJ_uOvXP8
+
+And according to the national instruments (NI) website, linux requires Open Sound System (OSS) drivers to work:
+
+http://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/soundvis/
+
+Here's OSS for Debian:
+
+https://wiki.debian.org/OSS/
+
+
+And for Ubuntu:
+https://help.ubuntu.com/community/OpenSound
+
+Note that OSS is currently freeware, it was commercial for awhile but you can find source code online.
+
+https://en.wikipedia.org/wiki/Open_Sound_System
+
+Anyhow you need it for sound vis to work...
+
+Sound vis are a good starting point for frequency domain stuff to happen.
