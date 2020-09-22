@@ -78,6 +78,12 @@ It will plot an array of amplitude vs frequency bin (not absolute frequency).
 
 Note that FFT will have this mirror effect so that the left half of the graph is a mirror of the right
 
+A good explanation of such vis can be found here:
+
+https://zone.ni.com/reference/en-XX/help/371361R-01/lvanls/fft/
+
+
+
 
 <h1> power spectrum </h1>
 
