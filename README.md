@@ -62,4 +62,6 @@ The alternative is to record a wav file using audacity.
 
 And then importing the wav files into audacity.
 
+This video is helpful
+
 
