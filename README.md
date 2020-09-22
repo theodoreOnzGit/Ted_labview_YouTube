@@ -28,7 +28,7 @@ This was the closest guide for installing labview on Debian 10 buster, which sho
 https://www.martinholub.com/code/2019/04/28/InsatllingLabVIEW.html
 
 
-<h1> Example 1 notes: </h1>
+<h1> Example 1 (wav_reader.vi)  notes: </h1>
 
 In Example 1, i attempt to connect the microphone to labview in linux (Linux mint ulyana) and i find that some of these videos are helpful:
 
@@ -65,3 +65,26 @@ And then importing the wav files into audacity.
 This video is helpful
 
 
+So the first example was to produce time domain chart from a waveform, ie audio file.
+
+
+<h1> fast fourier transform </h1>
+
+Now we want to start working with frequencies as well.
+
+So we first want to try working with fast fourier transform (FFT).
+
+It will plot an array of amplitude vs frequency bin (not absolute frequency).
+
+Note that FFT will have this mirror effect so that the left half of the graph is a mirror of the right
+
+
+<h1> power spectrum </h1>
+
+if you want a quick way to see the frequency spectrum, then the best way is to use spectral measurements using the express vi.
+
+It will be able to give you the exact frequencies that you will be noting.
+
+I have a sound file which is a C in the guitar string going at 130 Hz.
+
+You can use it to test things out...
