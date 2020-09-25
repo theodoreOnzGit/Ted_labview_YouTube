@@ -94,3 +94,63 @@ It will be able to give you the exact frequencies that you will be noting.
 I have a sound file which is a C in the guitar string going at 130 Hz.
 
 You can use it to test things out...
+
+
+<h1> FFT part ii </h1>
+
+Well, you know, fast fourier transform doesn't quite give a plot of amplitude vs frequency.
+
+So graph's rather hard to read.
+
+How then do you read it?
+
+One clue:
+
+Set the number of elements to 44100 in FFT, that is FFT length is 44100.
+
+Notice how the C3 note now has a peak at frequency bin 130ish, 264 and 396.
+
+Why so special?
+
+Note that the sampling frequency of the wav file is 44100, try doing it in audacity. I can do another note (G or A).
+
+
+So G or A, They have a slightly different frequency. But the sampling frequency for audio files is still 44100 Hz or 44.1 kHz. 48 kHz is for ultra high def audio.
+
+
+What is sampling frequency anyway?
+
+https://www.izotope.com/en/learn/digital-audio-basics-sample-rate-and-bit-depth.html
+
+This above website will help in understanding.
+
+
+How does this relate to the frequency bins?
+
+
+well, do take a look at the labview FFT vi help.
+
+
+You will see how the FFT works.
+
+
+one good video for you is this one by Steve Brunton.
+
+https://www.youtube.com/watch?v=E8HeD-MUrjY
+
+
+you can see that in the labview help,
+the increment in frequency between each frequency bin is sampling frequency / no. of samples.
+
+
+So for audio files, 44100 samples are taken each second, and we have 280,000 ish samples. So this is about 6s of data...
+
+
+What is the change in frequency?
+
+44100/280000 for my C note file. or about 1/6. Also note that this is 1/time where time is the time of the audio file.
+
+
+Now that we know this, how do we put all this into labview?
+
+We'll need to learn how to deal with arrays.
