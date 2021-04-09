@@ -1,0 +1,166 @@
+\documentclass[17pt]{extarticle}
+
+
+\begin{document}
+
+\part{Laplace Transforms}
+
+\section{definitions}
+
+$$\mathcal{L} \left[ f(t) \right] = F(s)$$
+$$\mathcal{L} \left[ f(t) \right] = \int_0^\infty f(t) e^{-st} dt$$
+
+\section{derivation}
+
+\paragraph{laplace trf of 1}
+$$\mathcal{L} \left[ 1 \right] = \int_0^\infty  e^{-st} dt$$
+
+$$\mathcal{L} \left[ 1 \right] = \left[ \frac{e^{-st}}{-s} \right]_0^\infty$$
+
+$$\mathcal{L} \left[ 1 \right] = 0 -  \frac{e^{-s*0}}{-s}$$
+$$\mathcal{L} \left[ 1 \right] =  \frac{1}{s}$$
+
+\paragraph{laplace trf of exponentials}
+\subparagraph{positive exponentials}
+
+$$\mathcal{L} \left[ e^{at} \right] = \int_0^\infty e^{at} e^{-st} dt$$
+
+$$\mathcal{L} \left[ e^{at} \right] = \int_0^\infty  e^{(a-s)t} dt$$
+
+$$\mathcal{L} \left[ e^{at} \right] = \left[ \frac{e^{(a-s)t}}{(a-s)}\right]_0^\infty$$
+
+$$\mathcal{L} \left[ e^{at} \right] = \frac{e^{(a-s)\infty}}{(a-s)} - \frac{e^{(a-s)*0}}{(a-s)} $$
+
+$$\mathcal{L} \left[ e^{at} \right] = \frac{e^{(a-s)\infty}}{(a-s)} + \frac{1}{(s-a)} $$
+
+we have this problem:
+
+$$\frac{e^{(a-s)\infty}}{(a-s)}$$
+
+
+$$a=s \rightarrow \frac{1}{0} = \infty$$
+$$a-s >0 \rightarrow \mathcal{L} \left[ e^{at} \right] = \infty$$
+$$a-s <0 ; s> a ; \rightarrow \mathcal{L} \left[ e^{at} \right] = \frac{1}{s-a}$$
+\subparagraph{negative exponentials}
+
+note that a$>$0 and is real.
+
+$$\mathcal{L} \left[ e^{-at} \right] = \int_0^\infty e^{-at} e^{-st} dt$$
+
+$$\mathcal{L} \left[ e^{-at} \right] = \int_0^\infty  e^{-(a+s)t} dt$$
+
+$$\mathcal{L} \left[ e^{-at} \right] = \left[ \frac{e^{-(a+s)t}}{-(a+s)}\right]_0^\infty$$
+
+$$a+s > 0$$
+$$\mathcal{L} \left[ e^{-at} \right] = \frac{e^{-(a+s)\infty}}{-(a+s)} - \frac{e^{-(a+s)*0}}{-(a+s)}$$
+
+$$\mathcal{L} \left[ e^{-at} \right] = 0 - \frac{e^{-(a+s)*0}}{-(a+s)}$$
+
+$$\mathcal{L} \left[ e^{-at} \right] =  \frac{1}{a+s}$$
+
+\subparagraph{imaginary exponentials (sines and cosines)}
+
+\begin{verbatim}
+https://en.wikipedia.org/wiki/Euler%27s_formula
+\end{verbatim}
+
+$$\cos (\omega t) = \frac{\exp (i \omega t) + \exp (- i \omega t)}{2}$$
+$$\sin (\omega t) = \frac{\exp (i \omega t) - \exp (- i \omega t)}{2i}$$
+
+$$\mathcal{L} \left[ e^{-i\omega t} \right] = \int_0^\infty e^{-i\omega t} e^{-st} dt$$
+
+$$\mathcal{L} \left[ e^{-i\omega t} \right] = \int_0^\infty e^{-(i\omega+s) t} dt$$
+
+$$\mathcal{L} \left[ e^{-i\omega t} \right] = \left[ \frac{e^{-(i \omega+s)t}}{-(i \omega+s)}\right]_0^\infty$$
+
+$$(i\omega +s) > 0$$
+
+$$\mathcal{L} \left[ e^{-i\omega t} \right] = \frac{1}{(i \omega+s)}$$
+
+$$\mathcal{L} \left[ e^{i\omega t} \right] = \int_0^\infty e^{i\omega t} e^{-st} dt$$
+
+$$\mathcal{L} \left[ e^{i\omega t} \right] = \left[ \frac{e^{(i\omega-s)t}}{(i\omega-s)}\right]_0^\infty$$
+
+Assume
+$$i \omega  > s$$
+
+$$\mathcal{L} \left[ e^{i\omega t} \right] = 0 + \frac{1}{s- i \omega }$$
+$$\mathcal{L} \left[ e^{i\omega t} \right] = \frac{1}{s- i \omega }$$
+
+now we can do sines and cosines:
+
+
+$$\cos (\omega t) = \frac{\exp (i \omega t) + \exp (- i \omega t)}{2}$$
+$$\mathcal{L}(\cos (\omega t)) =\frac{1}{2} \frac{1}{s- i \omega } + \frac{1}{2} \frac{1}{s+i \omega}$$
+
+
+$$\mathcal{L}(\cos (\omega t)) =\frac{1}{2} \left[ \frac{s+i \omega}{s^2 +  \omega^2 } + \frac{s- i \omega}{s^2 +  \omega^2} \right]$$
+
+$$\mathcal{L}(\cos (\omega t)) = \frac{s}{s^2 +  \omega^2} $$
+
+Let's do sines:
+
+$$\sin (\omega t) = \frac{\exp (i \omega t) - \exp (- i \omega t)}{2i}$$
+$$\mathcal{L}(\sin (\omega t)) =\frac{1}{2i} \frac{1}{s- i \omega } - \frac{1}{2i} \frac{1}{s+i \omega}$$
+
+
+$$\mathcal{L}(\sin (\omega t)) =\frac{1}{2i} \left[ \frac{s+i \omega}{s^2 +  \omega^2 } - \frac{s- i \omega}{s^2 +  \omega^2} \right]$$
+
+$$\mathcal{L}(\sin (\omega t)) = \frac{\omega}{s^2 +  \omega^2} $$
+
+\subparagraph{complex exponentials}
+
+$$a< 0 ; \omega <0$$
+
+$$\mathcal{L} \left[ e^{-(a+i\omega) t} \right] = \int_0^\infty e^{-(a+i\omega) t} e^{-st} dt$$
+
+
+$$\mathcal{L} \left[ e^{-(a+i\omega) t} \right] = \left[ \frac{e^{-(a+i \omega+s)t}}{-(a+ i \omega+s)}\right]_0^\infty$$
+
+$$a+i \omega  +s >0 $$
+
+$$\mathcal{L} \left[ e^{-(a+i\omega) t} \right] = \frac{1}{(a+ i \omega+s)}$$
+
+$$a< 0 ; \omega > 0$$
+
+$$\mathcal{L} \left[ e^{-(a-i\omega) t} \right] = \int_0^\infty e^{-(a-i\omega) t} e^{-st} dt$$
+
+$$a-i \omega  + s >0 $$
+
+$$\mathcal{L} \left[ e^{-(a-i\omega) t} \right] =  \left[ \frac{e^{-(a-i \omega+s)t}}{-(a- i \omega+s)}\right]_0^\infty$$
+
+$$\mathcal{L} \left[ e^{-(a-i\omega) t} \right] =   \frac{1}{(a- i \omega+s)}$$
+
+So we can apply this to sines and cosines with exponential product.
+
+$$\mathcal{L} \left[ e^{-a t}  sin (\omega t) \right] = \mathcal{L} \left[ e^{-a t}  \frac{e^{i\omega t} -e^{-i\omega t}}{2i} \right]  = \int_0^\infty e^{-a t} e^{-st} \frac{e^{i\omega t} -e^{-i\omega t}}{2i} dt$$
+
+
+$$\mathcal{L} \left[ e^{-a t}  \frac{e^{i\omega t} -e^{-i\omega t}}{2i} \right]$$
+$$ = \frac{1}{2i} \mathcal{L} (e^{-at+i\omega t}) -\frac{1}{2i} \mathcal{L} (e^{-at-i\omega t}) $$
+
+$$ = \frac{1}{2i}  \frac{1}{(a- i \omega+s)} -\frac{1}{2i}  \frac{1}{(a+ i \omega+s)} $$
+
+Note:
+$$(a- i\omega +s)(a +i \omega +s) = (s^2 +a^2 + \omega^2 +s(a-i \omega) +s (a + i \omega) ) $$
+
+$$= s^2 + a^2 + \omega^2 + 2as = (s+a)^2 + \omega^2$$
+Subs back:
+
+
+$$ = \frac{1}{2i}  \frac{a+i \omega + s}{(s+a)^2 + \omega^2} -\frac{1}{2i}  \frac{a- i \omega + s}{(s+a)^2 + \omega^2} $$
+
+$$ = \frac{1}{2i}  \frac{2 i \omega}{(s+a)^2 + \omega^2} $$
+$$ \mathcal{L} \left[ e^{-a t}  sin (\omega t) \right] =  \frac{ \omega}{(s+a)^2 + \omega^2} $$
+
+
+
+\part{Appendix}
+
+\section{Font Sizes}
+
+\begin{verbatim}
+https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F
+\end{verbatim}
+
+\end{document}

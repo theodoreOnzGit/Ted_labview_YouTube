@@ -1,0 +1,92 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.9)  9 APR 2021 13:03
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**controlTheory.tex
+(./controlTheory.tex
+LaTeX2e <2020-10-01> patch level 2
+L3 programming layer <2020-12-03> xparse <2020-03-03>
+(/usr/share/texmf-dist/tex/latex/extsizes/extarticle.cls
+Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/extsizes/size17.clo
+File: size17.clo 1999/11/11 NON-Standard LaTeX file (size option)
+)
+(/usr/share/texmf-dist/tex/latex/base/exscale.sty
+Package: exscale 2018/09/24 v2.1i Standard LaTeX package exscale
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 57.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
+\big@size=\dimen138
+)
+\c@part=\count177
+\c@section=\count178
+\c@subsection=\count179
+\c@subsubsection=\count180
+\c@paragraph=\count181
+\c@subparagraph=\count182
+\c@figure=\count183
+\c@table=\count184
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen139
+)
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count185
+\l__pdf_internal_box=\box47
+)
+(./controlTheory.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+[2] [3] [4] [5] [6]
+Overfull \hbox (13.00299pt too wide) detected at line 136
+\OMS/cmsy/m/n/17.28 L [] \OT1/cmr/m/n/17.28 = \OMS/cmsy/m/n/17.28 L [] \OT1/cmr
+/m/n/17.28 = [][] \OML/cmm/m/it/17.28 e[]e[][]dt
+ []
+
+[7]
+Overfull \hbox (233.46786pt too wide) in paragraph at lines 162--162
+[]\OT1/cmtt/m/n/17.28 https://www.overleaf.com/learn/latex/Questions/How_do_I_a
+djust_the_font_size%3F[] 
+ []
+
+[8] (./controlTheory.aux) ) 
+Here is how much of TeX's memory you used:
+ 430 strings out of 479383
+ 9314 string characters out of 5875831
+ 279940 words of memory out of 5000000
+ 17615 multiletter control sequences out of 15000+600000
+ 407094 words of font info for 40 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 52i,5n,59p,239b,170s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
+2.pfb>
+Output written on controlTheory.pdf (8 pages, 79469 bytes).
+PDF statistics:
+ 59 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
