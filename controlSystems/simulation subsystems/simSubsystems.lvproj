@@ -20,6 +20,7 @@
 			</Item>
 			<Item Name="LoopTimer SubVI.vi" Type="VI" URL="../LoopTimer SubVI.vi"/>
 			<Item Name="StepSize for Simloop.vi" Type="VI" URL="../StepSize for Simloop.vi"/>
+			<Item Name="Subsystem 1.vi" Type="VI" URL="../Subsystem 1.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
