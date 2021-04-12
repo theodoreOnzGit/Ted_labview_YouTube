@@ -153,7 +153,249 @@ $$ = \frac{1}{2i}  \frac{a+i \omega + s}{(s+a)^2 + \omega^2} -\frac{1}{2i}  \fra
 $$ = \frac{1}{2i}  \frac{2 i \omega}{(s+a)^2 + \omega^2} $$
 $$ \mathcal{L} \left[ e^{-a t}  sin (\omega t) \right] =  \frac{ \omega}{(s+a)^2 + \omega^2} $$
 
+\paragraph{Derivatives and integrals}
 
+$$\mathcal{L} [ \frac{df(t)}{dt}] = \int_0^\infty \frac{d f(t)}{dt} \exp(-st) dt $$
+
+Integrate by parts:
+
+$$\mathcal{L} [ \frac{df(t)}{dt}] = [f(t) \exp(-st)]_0^\infty - \int_0^\infty f(t) (-s) \exp(-st) dt$$
+
+$$\mathcal{L} [ \frac{df(t)}{dt}] = [f(t) \exp(-st)]_0^\infty +s \int_0^\infty f(t)  \exp(-st) dt$$
+
+$$\mathcal{L} [ \frac{df(t)}{dt}] = [f(t) \exp(-st)]_0^\infty +s \mathcal{L} (f(t))$$
+
+$$\mathcal{L} [ \frac{df(t)}{dt}] = [f(t \rightarrow \infty) \exp(-s\infty) - f(t = 0) * \exp(-s*0) ] +s \mathcal{L} (f(t))$$
+
+$$f(t) \neq \exp(st)$$
+and $f(t)$ doesn't go to infinity faster than $\exp(-st)$, s$>$0
+
+$$\mathcal{L} [ \frac{df(t)}{dt}] = [0 - f(t = 0) ] +s \mathcal{L} (f(t))$$
+
+$$\mathcal{L} [ \frac{df(t)}{dt}] = s \mathcal{L} (f(t)) - f(t = 0) $$
+
+We can use this transform for integrals as long as u have the BC
+
+$$\mathcal{L} [ f(t)] = s \mathcal{L} (\int f(t) dt) -\int f (t) dt|_{t = 0} )  $$
+
+$$ \mathcal{L} (\int f(t) dt) = \frac{1}{s} \left[ [\mathcal{L} [ f(t)] + \int f (t) dt|_{t = 0} ]  \right]$$
+
+
+We can see in laplace domain, integrating means multiply by $\frac{1}{s}$ and differentiating is multiplying by s. Of course we have BCs.
+
+Let's do some examples,
+
+$$\mathcal{L}[t]$$
+
+Note:
+
+$$\frac{d t}{dt} =1 $$
+
+We can use this:
+
+$$ \mathcal{L} (\int f(t) dt) = \frac{1}{s} \left[ [\mathcal{L} [ f(t)] + \int f (t) dt|_{t = 0} ]  \right]$$
+
+in this case $f(t)=1$
+
+$$ \mathcal{L} (t) = \frac{1}{s} \left[ [\mathcal{L} [1] + \int 1 dt|_{t = 0} ]  \right]$$
+
+$$ \mathcal{L} (t) = \frac{1}{s} \left[ [\mathcal{L} [1] + t|_{t = 0} ]  \right]$$
+
+$$ \mathcal{L} (t) = \frac{1}{s} \left[ [\mathcal{L} [1] + 0 ]  \right]$$
+
+$$ \mathcal{L} (t) = \frac{1}{s} \left[ [\frac{1}{s} ]  \right] = \frac{1}{s^2}$$
+
+
+Let's do 
+$$\mathcal{L}[t^2]$$
+
+
+Let's use the integration formula, say f(t) $=2t$
+
+$$ \mathcal{L} (\int f(t) dt) = \frac{1}{s} \left[ [\mathcal{L} [ f(t)] + \int f (t) dt|_{t = 0} ]  \right]$$
+
+
+$$ \mathcal{L} (t^2) = \frac{1}{s} \left[ [2\mathcal{L} [ t]   + t^2_{t = 0} ]  \right]$$
+
+$$ \mathcal{L} (t^2) = \frac{1}{s}  [2 \frac{1}{s^2} ] = \frac{2}{s^3}  $$
+
+\part{applications examples}
+
+\section{ODEs of time varying systems}
+
+linear time invariant (LTI) systems
+$$y'' + 2y' + y = \sin (\omega t)$$
+$$y'+3y = \exp(-{2t}) + 4$$
+
+nonlinear:
+
+$$(y'')^2 + 2y' + y = \sin (\omega t)$$
+
+2nd order ODE:
+
+$$\mathcal{L}(y''+2y'+y)= \mathcal{L}(\sin (\omega t)$$
+
+
+$$\mathcal{L}(y''+2y'+y)= \frac{\omega}{s^2 + \omega^2}$$
+
+$$\mathcal{L}(y'') + y(s) + 2[s y(s) - y(t=0)]= \frac{\omega}{s^2 + \omega^2}$$
+
+$$\mathcal{L}(y'') = s \mathcal{L}(y'(t)) - y'(t=0)$$
+
+$$\mathcal{L}(y'') = s (s y(s) - y(t=0)) - y'(t=0)$$
+$$\mathcal{L}(y'') =  s^2 y(s) - sy(t=0) - y'(t=0)$$
+
+subs back:
+
+$$s^2 y(s) - sy(t=0) - y'(t=0)+ y(s) + 2[s y(s) - y(t=0)]= \frac{\omega}{s^2 + \omega^2}$$
+
+
+$$s^2 y(s) + y(s) + [2s y(s) - 2y(t=0)]= \frac{\omega}{s^2 + \omega^2} + sy(t=0) + y'(t=0)$$
+
+$$s^2 y(s) + y(s) + 2s y(s) = \frac{\omega}{s^2 + \omega^2} + sy(t=0) + y'(t=0) + 2y(t=0)$$
+
+$$s^2 y(s) + y(s) + 2s y(s) = \frac{\omega}{s^2 + \omega^2} + (2+s) y(t=0) + y'(t=0) $$
+
+$$y (s) (s^2 + 2s + 1)= \frac{\omega}{s^2 + \omega^2} + (2+s) y(t=0) + y'(t=0) $$
+
+$$y (s)= \frac{\omega}{s^2 + \omega^2} \frac{1}{ (s^2 + 2s + 1)} +  \frac{(2+s) y(t=0) + y'(t=0)}{s^2 + 2s + 1} $$
+
+$$y (s)= \frac{\omega}{s^2 + \omega^2} \frac{1}{ (s^2 + 2s + 1)} +  \frac{(2+s) y(t=0) }{s^2 + 2s + 1} + \frac{y'(t=0)}{s^2 + 2s + 1} $$
+
+
+$$y(t)  = \mathcal{L}^{-1} (\frac{\omega}{s^2 + \omega^2} \frac{1}{ (s^2 + 2s + 1)} +  \frac{(2+s) y(t=0) }{s^2 + 2s + 1} + \frac{y'(t=0)}{s^2 + 2s + 1} )$$
+
+
+$$y(t)  = \mathcal{L}^{-1} (\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2} +  \frac{(2+s) y(t=0) }{(s+1)^2} + \frac{y'(t=0)}{(s+1)^2} )$$
+
+Note:
+
+$$\mathcal{L}[e^{-t}] = \frac{1}{s+1}$$
+
+Partial fraction:
+
+$$\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2}  = \frac{Bs + C}{s^2 + \omega^2} + \frac{D}{s+1} + \frac{E}{(s+1)^2} $$
+
+B, C, D and E are constants
+
+
+$$\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2}  = \frac{Bs + C}{s^2 + \omega^2} + \frac{D}{s+1} + \frac{E}{(s+1)^2} $$
+
+\begin{verbatim}
+https://www.wolframalpha.com/input/?i=partial+fraction+1%2F%28%28x%2Ba%29%5E2+*+%28x%5E2%2Bb%5E2%29%29
+\end{verbatim}
+
+From wolfram:
+$$\frac{1}{s^2 + \omega^2} \frac{1}{(s+1)^2} = \frac{-\omega^2 - 2s +1}{(\omega^2+1)^2} \frac{1}{\omega^2 + s^2}+ \frac{2}{(\omega^2+1)^2} \frac{1}{s+1} + \frac{1}{\omega^2+1} \frac{1}{(s+1)^2}$$
+
+multiply by $\omega$
+
+$$\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2} = \frac{-\omega^2 - 2s +1}{(\omega^2+1)^2} \frac{\omega}{\omega^2 + s^2}+ \frac{2\omega}{(\omega^2+1)^2} \frac{1}{s+1} + \frac{\omega}{\omega^2+1} \frac{1}{(s+1)^2}$$
+
+
+$$E = \frac{\omega}{\omega^2+1}$$
+$$D = \frac{2\omega}{(\omega^2+1)^2}$$
+$$B = \frac{-2\omega}{(\omega^2+1)^2}$$
+$$C = \frac{\omega(1-\omega^2)}{(\omega^2+1)^2}$$
+
+So we can reduce the first term to this:
+
+$$\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2}  = \frac{Bs + C}{s^2 + \omega^2} + \frac{D}{s+1} + \frac{E}{(s+1)^2} $$
+
+
+How do we inverse laplace $\frac{1}{(s+1)^2}$?
+
+\subparagraph{Frequency Shift}
+
+$$\mathcal{L}[e^{-at} f(t)] = \int_0^\infty e^{-at} f(t) e^{-st} dt $$
+
+$$\mathcal{L}[e^{-at} f(t)] = \int_0^\infty f(t) e^{-(s+a)t} dt $$
+
+Compare this with:
+
+$$\mathcal{L}[f(t)] = \int_0^\infty f(t) e^{-st} dt = F(s)$$
+
+So we can say:
+
+$$\mathcal{L}[e^{-at} f(t)] = \int_0^\infty f(t) e^{-(s+a)t} dt = F(s+a) $$
+
+let's say
+
+$$\mathcal{L}(t^2)= \frac{2}{s^3}$$
+
+$$\mathcal{L}(t^2 \exp(-at))= \frac{2}{(s+a)^3}$$
+\subparagraph{back to the qn}
+Now back to: $\frac{1}{(s+1)^2}$
+
+$$\mathcal{L}(t)= \frac{1}{s^2}$$
+
+$$\mathcal{L}(te^{-at})= \frac{1}{(s+1)^2}$$
+$$te^{-at}= \mathcal{L}^{-1} \left[ \frac{1}{(s+1)^2} \right]$$
+
+back to main qn:
+
+$$y(t)  = \mathcal{L}^{-1} (\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2} +  \frac{(2+s) y(t=0) }{(s+1)^2} + \frac{y'(t=0)}{(s+1)^2} )$$
+
+$$\frac{2+s}{(s+1)^2} = \frac{s+1 +1}{(s+1)^2}= \frac{1}{s+1} + \frac{1}{(s+1)^2}$$
+
+$$y(t)  = \mathcal{L}^{-1} (\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2} +  \frac{(2+s) y(t=0) }{(s+1)^2} + \frac{y'(t=0)}{(s+1)^2} )$$
+
+$$= \mathcal{L}^{-1} \left(\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2} + y(t=0)\left[ \frac{1  }{(s+1)^2}  + \frac{1}{s+1} \right] + \frac{y'(t=0)}{(s+1)^2} \right)$$
+
+
+$$= \mathcal{L}^{-1} \left(\frac{\omega}{s^2 + \omega^2} \frac{1}{(s+1)^2}\right) + y(t=0)\left[ te^{-t}  + e^{-t} \right] + y'(t=0) te^{-t} $$
+
+
+$$= \mathcal{L}^{-1}(\frac{Bs}{(s^2+\omega^2)}+ \frac{C}{(s^2+\omega^2)}+ \frac{D}{s+1}+ \frac{E}{(s+1)^2}) + y(t=0)\left[ te^{-t} + e^{-t} \right] 
+$$
+$$+ y'(t=0) te^{-t} $$
+
+$$= D e^{-t} + E te^{-t} + y(t=0)\left[ te^{-t} + e^{-t} \right] 
+$$
+$$+ y'(t=0) te^{-t} +B \cos (\omega t) + \frac{C}{\omega} \sin (\omega t)$$
+
+$$E = \frac{\omega}{\omega^2+1}$$
+$$D = \frac{2\omega}{(\omega^2+1)^2}$$
+$$B = \frac{-2\omega}{(\omega^2+1)^2}$$
+$$C = \frac{\omega(1-\omega^2)}{(\omega^2+1)^2}$$
+
+Leaving it as it is...
+
+Example 2: first order ODE
+
+$$y' +3y = \exp(-2t) + 4$$
+
+$$s Y(s) - y(t=0) + 3 Y(s) = \frac{1}{s+2} + \frac{4}{s}$$
+
+$$s Y(s) + 3 Y(s) = \frac{1}{s+2} + \frac{4}{s} +  y(t=0)$$
+
+$$Y(s)  (s + 3 ) = \frac{1}{s+2} + \frac{4}{s} +  y(t=0)$$
+$$Y(s)   = \frac{1}{s+2} \frac{1}{(s + 3 )} + \frac{4}{s} \frac{1}{(s + 3 )} +  y(t=0) \frac{1}{s+3}$$
+
+$$Y(s)   = \frac{1}{s+2} \frac{1}{(s + 3 )} + \frac{4}{s} \frac{1}{(s + 3 )} +  y(t=0) \frac{1}{s+3}$$
+
+$$y(t)   = \mathcal{L}^{-1} \left( \frac{1}{s+2} \frac{1}{(s + 3 )} + \frac{4}{s} \frac{1}{(s + 3 )} +  y(t=0) \frac{1}{s+3} \right)$$
+
+
+$$y(t)   = \mathcal{L}^{-1} \left( \frac{1}{s+2} \frac{1}{(s + 3 )} + \frac{4}{s} \frac{1}{(s + 3 )}  \right)+ y(t=0) \exp(-3t)$$
+
+wolfram partial fraction
+
+$$\frac{1}{s+2} \frac{1}{(s + 3 )} = \frac{1}{s+2} - \frac{1}{s+3}$$
+
+
+note: careless mistake in video, i forgot to times 4
+$$y(t)   = \mathcal{L}^{-1} \left( \frac{1}{s+2} - \frac{1}{s+3} + \frac{4}{s} \frac{1}{(s + 3 )}  \right)+ y(t=0) \exp(-3t)$$
+
+$$y(t)   = \mathcal{L}^{-1} \left( \frac{4}{s} \frac{1}{(s + 3 )}  \right)+ y(t=0) \exp(-3t) + \exp(-2t) - \exp(-3t)$$
+
+$$y(t)   = \mathcal{L}^{-1} \left( \frac{4/3}{s} -  \frac{1/3}{s + 3 }  \right)+ y(t=0) \exp(-3t) + \exp(-2t) - \exp(-3t)$$
+
+$$y(t)   =  \frac{4}{3} - \frac{1}{3} e^{-3t}+ y(t=0) \exp(-3t) + \exp(-2t) - \exp(-3t)$$
+
+$$y(t)   =  \frac{4}{3} - \frac{1}{3} e^{-3t}+ [y(t=0)-1] \exp(-3t) + \exp(-2t) $$
+
+$$y(t)   =  \frac{4}{3} + \left[y(t=0)-\frac{4}{3} \right] \exp(-3t) + \exp(-2t) $$
 
 \part{Appendix}
 
